@@ -34,7 +34,7 @@ public class PartitaTest {
 
 	@Test 
 	public void TestGetStanzaCorrente_Vuota() {
-		assertNull(p.getStanzaCorrente());
+		assertNotNull(p.getStanzaCorrente());
 	}
 
 }

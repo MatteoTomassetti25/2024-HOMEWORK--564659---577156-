@@ -52,21 +52,20 @@ public class Borsa {
 	
 	
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-		
 		Attrezzo a = null;
-		
-		if(isEmpty()) {
-			return a;
-		}
-		
-		else{
-			for(int i = 0; i<attrezzi.length; i++) {
-				a = attrezzi[i];
-				if(a.getNome().equals(nomeAttrezzo)) {
-					attrezzi[i]=null;
-					numeroAttrezzi--;
-					return a;
+
+		if(nomeAttrezzo!=null){
+			int i = 0;
+			for(Attrezzo att : this.attrezzi) {
+				if(att != null) {
+					if(att.getNome().equals(nomeAttrezzo)) {
+						a = att;
+						this.attrezzi[i] = null;
+						this.numeroAttrezzi--;
+					}
 				}
+				i++;
+
 			}
 		}
 		return a;

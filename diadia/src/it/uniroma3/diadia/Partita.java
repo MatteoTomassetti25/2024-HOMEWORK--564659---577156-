@@ -36,14 +36,33 @@ import it.uniroma3.diadia.giocatore.Giocatore;
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 20;
-
-	private Stanza stanzaCorrente;
-	//	private Stanza stanzaVincente;
-	private boolean finita;
-	private int cfu;
 	private Labirinto lab;
 	private Giocatore giocatore;
+	private boolean finita;
+	private Stanza stanzaCorrente;
+
+
+	public Partita(){
+		//		creaStanze();
+
+		lab = new Labirinto();
+		lab.init();
+		giocatore = new Giocatore();
+		stanzaCorrente = this.lab.getStanzaCorrente();
+		this.finita = false;
+
+	}
+
+
+	public void setStanzaCorrente(Stanza stanzaCorrente) {
+		this.stanzaCorrente = stanzaCorrente;
+	}
+
+	public void setFinita(boolean finita) {
+		this.finita = finita;
+	}
+
+
 
 	public Giocatore getGiocatore() {
 		return giocatore;
@@ -53,15 +72,6 @@ public class Partita {
 		this.giocatore = giocatore;
 	}
 
-	public Partita(){
-		//		creaStanze();
-		lab = new Labirinto();
-		giocatore = new Giocatore();
-		stanzaCorrente = this.lab.getStanzaCorrente();
-		this.finita = false;
-		this.cfu = CFU_INIZIALI;
-		lab.init();
-	}
 
 	/**
 	 * Crea tutte le stanze e le porte di collegamento
@@ -139,7 +149,7 @@ public class Partita {
 	 * @return vero se partita finita
 	 */
 	public boolean isFinita() {
-		return finita || vinta() || (cfu == 0);
+		return finita || vinta() || (giocatore.getCfu() == 0);
 	}
 
 	/**
@@ -148,6 +158,10 @@ public class Partita {
 	 */
 	public void setFinita() {
 		this.finita = true;
+	}
+	
+	public boolean giocatoreIsVivo() {
+		return this.giocatore.getCfu()>0;
 	}
 
 	//	public int getCfu() {

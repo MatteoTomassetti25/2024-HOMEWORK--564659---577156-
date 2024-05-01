@@ -28,4 +28,8 @@ public class Giocatore {
 	public Borsa getBorsa() {
 		return this.borsa;
 	}
+	
+	public String toString() {
+		return "GIOCATORE: "+ "cfu: "+this.cfu+"  ,attrezzi: "+this.borsa.toString();
+	}
 }
