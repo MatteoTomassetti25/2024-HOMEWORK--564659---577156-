@@ -42,10 +42,10 @@ public class Partita {
 	private Stanza stanzaCorrente;
 
 
-	public Partita(){
+	public Partita(Labirinto labirinto){
 		//		creaStanze();
 
-		lab = new Labirinto();
+		lab = labirinto;
 		lab.init();
 		giocatore = new Giocatore();
 		stanzaCorrente = this.lab.getStanzaCorrente();

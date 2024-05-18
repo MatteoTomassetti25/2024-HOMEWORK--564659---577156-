@@ -10,20 +10,29 @@ import org.junit.Test;
 import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.IOConsole;
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class ComandoPosaTest {
 
+	Labirinto labirinto = new Labirinto();
 	Stanza stanzaCorrente = new Stanza("test");
 	Attrezzo spada = new Attrezzo("spada", 5);
 	Attrezzo laser = new Attrezzo("laser", 10);
-	Partita partita = new Partita();
+	Partita partita = new Partita(labirinto);
 	Comando comando = new ComandoPosa();
 	IO io = new IOConsole();
 	
 	@Before
 	public void setUp() {
+		labirinto = new LabirintoBuilder()
+				.addStanzaIniziale("Atrio")
+				.addAttrezzo("seghetto", 3)
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("Atrio", "Biblioteca", "nord")
+				.getLabirinto();
 		comando.setIo(io);
 	}
 	

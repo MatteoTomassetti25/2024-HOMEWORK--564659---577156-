@@ -7,6 +7,7 @@ public class ComandoFine implements Comando {
 	
 	private final static String NOME = "fine";
 	private IO io;
+	final public static String MESSAGGIO_FINE = "Grazie di aver giocato!";
 
 	
 
@@ -15,7 +16,7 @@ public class ComandoFine implements Comando {
 		// TODO Auto-generated method stub
 		
 		partita.setFinita();
-		io.mostraMessaggio("Grazie di aver giocato!");
+		io.mostraMessaggio(MESSAGGIO_FINE);
 		
 	}
 
@@ -41,6 +42,10 @@ public class ComandoFine implements Comando {
 
 	public void setIo(IO io) {
 		this.io = io;
+	}
+	
+	public String getMESSAGGIOFINE() {
+		return this.MESSAGGIO_FINE;
 	}
 
 	

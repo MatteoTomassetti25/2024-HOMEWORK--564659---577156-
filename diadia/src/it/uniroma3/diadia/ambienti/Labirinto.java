@@ -54,4 +54,12 @@ public class Labirinto {
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;
 	}
+	
+	public void setStanzaVincente(Stanza stanzaVincente) {
+		this.stanzaVincente=stanzaVincente;
+	}
+	
+	public static LabirintoBuilder newBuilder() {
+		return new LabirintoBuilder();
+	}
 }

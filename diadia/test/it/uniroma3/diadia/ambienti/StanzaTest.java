@@ -69,8 +69,8 @@ public class StanzaTest {
 		s.addAttrezzo(a);
 		s.addAttrezzo(b);
 	    assertTrue(s.removeAttrezzo(b));
-	    assertNotNull(b);
-	    assertEquals(b, s.getAttrezzo(b.getNome()));
+ 	    assertFalse(s.hasAttrezzo(b.getNome()));
+	    assertEquals(a, s.getAttrezzo(a.getNome()));
 	}
 
 }
